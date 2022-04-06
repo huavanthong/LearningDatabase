@@ -1,8 +1,15 @@
 # Introduction
 This tutorial will help you understand about impersonate on PostgresSQL. You need follow step by steps to recognize the difference between each step. It helps you understand it clearly.
 
+# Table of Contents
+* [What is impersonate?](#impersonate)
+* [How do you set impersonatation to another user?](#create-another-user)
 
 # Getting Started
+### Impersonate
+```
+Nói đơn giản, impersonate là từ user A, ta mạo danh user B, và thực hiện được các thao tác của user B.
+```
 ### Log in with superuser
 **Step 1:** log in PostgreSQL using psql tool
 ```

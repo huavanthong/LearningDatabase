@@ -4,76 +4,78 @@ This tutorial will help you understand about some command on PostgresSQL using p
 # Table of Contents
 * [Acccess to database](#access-to-database)
 * [Schema in database](#schema-database)
+* [Create user](#create-user)
 * [Grant user](#grant-user)
 * [Revoke user](#revoke-user)
 # Getting Started
 ## Access to database
-to log in with superuser.
+#### to log in with superuser.
 ```
 psql -d postgres -U postgres -W
 psql -d testdb -U testuser -W
 ```
 
-to create a new user
+#### to create a new user
 ```
 postgres# create user testuser with password '123456';
 ```
 
-to create a new database
+#### to create a new database
 ```
 postgres# create database testdb;
 ```
 
-to provide the privilege to new user
+#### to provide the privilege to new user
 ```
 postgres=# grant all on database testdb to testuser;
 ```
 
-to get a list available databases
+#### to get a list available databases
 ```
 \l
 ```
 
-to switch to a new database
+#### to switch to a new database
 ```
 \c testdb
 ```
 
 ## Usage with database and tables
-to get a list of table in your database
+#### to get a list of table in your database
 ```
 \dt
 ```
 
-to create a table on database
+#### to create a table on database
 ```
 CREATE TABLE tutorials (id int, tutorial_name text);
 ```
 
-to describe a table such as a column, type, modifiers of columns, etc.
+#### to describe a table such as a column, type, modifiers of columns, etc.
 ```
 \d table_name
 ```
 
-to insert your data to your table
+#### to insert your data to your table
 ```
 insert into tutorials(id, tutorial_name) values
 (1, sql tutorial),
 (2, postgresql tutorial),
 ```
 
-to update value into table
+#### to update value into table
 ```
 update tutorials
 set tutorial_name = "hvthong updated"
 where id = 1
 ```
 ## Schema database
-to list all schemas simply by using psql
+#### to list all schemas simply by using psql
 ```
 > \dn
 ```
-to get all shemas with the current user - superuser
+
+#### to get all shemas with the current user - superuser
 ```
 SELECT schema_name
 FROM information_schema.schemata;
@@ -83,12 +85,12 @@ or
 SELECT nspname FROM pg_catalog.pg_namespace;
 ```
 
-to get all information related to schemas with the current user
+#### to get all information related to schemas with the current user
 ```
 select * from information_schema.schemata
 ```
 
-to get all tables in your schema with the current user.
+#### to get all tables in your schema with the current user.
 ```
 SELECT table_name
 FROM information_schema.tables
@@ -96,10 +98,27 @@ WHERE table_schema = 'public'
 ORDER BY table_name;
 ```
 
-to get all information related to table with the current user
+#### to get all information related to table with the current user
 ```
 select * from information_schema.tables
 ```
+
+## Create user
+#### to create a user
+```
+create database testdb;
+```
+
+#### to create a user with password
+```
+create user testuser with password '123456';
+```
+
+#### to grant all privilege to new user
+```
+grant all on database testdb to testuser;
+```
+
 ## Grant user
 #### to get all users in db
 ```
