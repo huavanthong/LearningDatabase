@@ -66,7 +66,7 @@ CREATE TABLE tbl1Products (
 	
 	CONSTRAINT tbl1_Products_pkey PRIMARY KEY (ProductID),
 	CONSTRAINT Products_Suppliers FOREIGN KEY (SupplierID) REFERENCES tbl1Suppliers(SupplierID),
-	CONSTRAINT Products_Categories FOREIGN KEY (CategoryID) REFERENCES tbl2Categories(CategoryID)
+	CONSTRAINT Products_Categories FOREIGN KEY (CategoryID) REFERENCES tbl1Categories(CategoryID)
 );
 
 DROP TABLE IF EXISTS tbl3Orders CASCADE;
