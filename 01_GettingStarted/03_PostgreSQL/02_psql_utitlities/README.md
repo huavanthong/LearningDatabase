@@ -73,7 +73,18 @@ root           1  0.0  0.0 167584 11356 ?        Ss   Apr06   0:06 /sbin/init sp
 root           2  0.0  0.0      0     0 ?        S    Apr06   0:00 [kthreadd]
 root           3  0.0  0.0      0     0 ?        I<   Apr06   0:00 [rcu_gp]
 ```
-
+### Kill command
+to kill a process, we need a processID
+```
+kill <processID>
+```
+### Kill -9 command
+kill -9 is a useful command when you need to shut down an unresponsive service. Run it similarly as a regular kill command:
+```
+kill -9 <processID>
+or
+kill -SIGKILL <processID>
+```
 ### Manual on Database
 Create a new database
 ```
