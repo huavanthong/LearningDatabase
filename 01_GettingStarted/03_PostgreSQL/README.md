@@ -115,7 +115,7 @@ create user testuser with password '123456';
 create role testuser with login passworld '123456';
 ```
 **Note:**
-In PostgreSQL, we need to know that "CREATE USER is now an alias for CREATE ROLE. The only difference is that when the command is spelled CREATE USER, LOGIN is assumed by default, whereas NOLOGIN is assumed when the command is spelled CREATE ROLE."
+* In PostgreSQL, we need to know that "CREATE USER is now an alias for CREATE ROLE. The only difference is that when the command is spelled CREATE USER, LOGIN is assumed by default, whereas NOLOGIN is assumed when the command is spelled CREATE ROLE."
 * More details: [difference create user and create role](https://stackoverflow.com/questions/31490683/what-is-create-user-and-create-role-in-postgresql)
 #### to grant all privilege to new user
 ```
