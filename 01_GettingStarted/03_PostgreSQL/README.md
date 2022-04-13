@@ -12,7 +12,6 @@ This tutorial will help you understand about some command on PostgresSQL using p
 #### to log in with superuser.
 ```
 psql -d postgres -U postgres -W
-psql -d testdb -U testuser -W
 ```
 #### to list all of relations in db
 ```
@@ -54,14 +53,21 @@ postgres=# grant all on database testdb to testuser;
 
 #### to get a list available databases
 ```
-\l
+postgres=# \l
 ```
 
 #### to switch to a new database
 ```
-\c testdb
+postgres=# \c testdb
+Password:
+You are now connected to database "testdb" as user "postgres".
+testdb=#
 ```
-
+**Note:** 
+* When switch to another database, it is similar to login with user 
+```
+psql -d testdb -U testuser -W
+```
 ## Usage with database and tables
 #### to get a list of table in your database
 ```
