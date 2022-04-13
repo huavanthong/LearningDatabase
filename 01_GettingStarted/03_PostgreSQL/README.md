@@ -66,7 +66,7 @@ testdb=#
 **Note:** 
 * When switch to another database, it is similar to login with user 
 ```
-psql -d testdb -U testuser -W
+psql -d testdb -U postgres -W
 ```
 ## Usage with database and tables
 #### to get a list of table in your database
