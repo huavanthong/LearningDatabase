@@ -4,8 +4,9 @@ This tutorial will help you understand about impersonate on PostgresSQL. You nee
 # Table of Contents
 * [What is impersonate?](#impersonate)
 * [How do you set impersonatation to another user?](#create-another-user)
+* [When you have knowledge about impersonate, right now, think about this example?](#example)
 
-# Getting Started
+## Getting Started
 ### Impersonate
 ```
 Nói đơn giản, impersonate là từ user A, ta mạo danh user B, và thực hiện được các thao tác của user B.
@@ -76,4 +77,28 @@ current_user  session_user
 2 "public"
 3 "information_schema"
 4 "fritz"
+```
+### Example
+```sql
+select * from tbl1customers
+
+create user hvthong with password '123456';
+
+select * from pg_catalog.pg_user
+
+select current_user, session_user
+
+set session authorization hvthong
+
+select * from tbl1customers
+
+reset session authorization
+
+select * from tbl1customers
+
+grant connect on database order_product to hvthong
+
+set session authorization hvthong
+
+select * from tbl1customers
 ```
