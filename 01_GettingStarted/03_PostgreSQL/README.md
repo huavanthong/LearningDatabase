@@ -6,6 +6,7 @@ This tutorial will help you understand about some command on PostgresSQL using p
 * [Schema in database](#schema-database)
 * [Create user](#create-user)
 * [Grant user](#grant-user)
+* [Get list privileges](#privileges)
 * [Revoke user](#revoke-user)
 # Getting Started
 ## Access to database
@@ -208,10 +209,27 @@ Recheck your roles
 ```
 GRANT ALL PRIVILEGES on stock to mike;
 ```
+
+## Privileges
+### get list of permission on a table with the current user
+```sql
+SELECT grantee, privilege_type 
+FROM 
+information_schema.role_table_grants 
+WHERE table_name = 'tbl1customers'
+```
+### get a limit 5 the privileged items from the current user
+```sql
+SELECT * FROM information_schema.table_privileges LIMIT 5;
+```
+### get a limit 5 the privileged items from the specific user
+```sql
+SELECT * from information_schema.table_privileges WHERE grantee = 'hvthong' LIMIT 5;
+```
 ## Revoke user
 Revoke: remove access privileges
 ### SQL statement to get list of permission on a table
-```
+```sql
 SELECT grantee, privilege_type 
 FROM 
 information_schema.role_table_grants 
