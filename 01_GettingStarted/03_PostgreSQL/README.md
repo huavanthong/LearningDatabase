@@ -209,7 +209,8 @@ Recheck your roles
 ```
 GRANT ALL PRIVILEGES on stock to mike;
 ```
-
+#### Reference:
+More details about ways to grant: [here](https://tableplus.com/blog/2018/04/postgresql-how-to-grant-access-to-users.html)
 ## Privileges
 ### get list of permission on a table with the current user
 ```sql
