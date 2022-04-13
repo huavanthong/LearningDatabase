@@ -14,7 +14,29 @@ This tutorial will help you understand about some command on PostgresSQL using p
 psql -d postgres -U postgres -W
 psql -d testdb -U testuser -W
 ```
+#### to list all of relations in db
+```
+> \d
+```
+Output
+```
+              List of relations
+ Schema |       Name       | Type  |  Owner
+--------+------------------+-------+----------
+ public | tbl1categories   | table | postgres
+ public | tbl1customers    | table | postgres
+ public | tbl1employees    | table | postgres
+ public | tbl1products     | table | postgres
+ public | tbl1shippers     | table | postgres
+ public | tbl1suppliers    | table | postgres
+ public | tbl2orderdetails | table | postgres
+ public | tbl3orders       | table | postgres
+ public | tutorials        | table | testuser
+ public | stock            | table | johnd
+ public | item             | table | postgres
 
+
+```
 #### to create a new user
 ```
 postgres# create user testuser with password '123456';
@@ -104,26 +126,7 @@ select * from information_schema.tables
 ```
 
 ## Create user
-#### to create a user
-```
-create database testdb;
-```
-
-#### to create a user with password
-```
-create user testuser with password '123456';
-create role testuser with login passworld '123456';
-```
-**Note:**
-* In PostgreSQL, we need to know that "CREATE USER is now an alias for CREATE ROLE. The only difference is that when the command is spelled CREATE USER, LOGIN is assumed by default, whereas NOLOGIN is assumed when the command is spelled CREATE ROLE."
-* More details: [difference create user and create role](https://stackoverflow.com/questions/31490683/what-is-create-user-and-create-role-in-postgresql)
-#### to grant all privilege to new user
-```
-grant all on database testdb to testuser;
-```
-
-## Grant user
-#### to get all users in db
+#### to get all users in db using psql
 ```
 > \du
 ```
@@ -143,29 +146,30 @@ Output
  testuser   |                                                            | {}
  xaopenuser | Superuser                                                  | {}
 ```
-#### to list all of relations in db
+#### to get all users in db using SQL query
 ```
-> d
+select * from pg_catalog.pg_user
 ```
-Output
+More details: [here](https://ubiq.co/database-blog/how-to-list-all-users-in-postgresql/)
+#### to create a user
 ```
-              List of relations
- Schema |       Name       | Type  |  Owner
---------+------------------+-------+----------
- public | tbl1categories   | table | postgres
- public | tbl1customers    | table | postgres
- public | tbl1employees    | table | postgres
- public | tbl1products     | table | postgres
- public | tbl1shippers     | table | postgres
- public | tbl1suppliers    | table | postgres
- public | tbl2orderdetails | table | postgres
- public | tbl3orders       | table | postgres
- public | tutorials        | table | testuser
- public | stock            | table | johnd
- public | item             | table | postgres
+create database testdb;
+```
 
-
+#### to create a user with password
 ```
+create user testuser with password '123456';
+create role testuser with login passworld '123456';
+```
+**Note:**
+* In PostgreSQL, we need to know that "CREATE USER is now an alias for CREATE ROLE. The only difference is that when the command is spelled CREATE USER, LOGIN is assumed by default, whereas NOLOGIN is assumed when the command is spelled CREATE ROLE."
+* More details: [difference create user and create role](https://stackoverflow.com/questions/31490683/what-is-create-user-and-create-role-in-postgresql)
+#### to grant all privilege to new user
+```
+grant all on database testdb to testuser;
+```
+
+## Grant user
 #### to grant SELECT privileges on table 'customer' to user 'anil'
 ```
 GRANT SELECT ON customer to anil;
