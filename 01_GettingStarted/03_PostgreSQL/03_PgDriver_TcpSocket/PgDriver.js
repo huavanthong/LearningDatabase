@@ -153,7 +153,22 @@ module.exports = class PgDriver {
         buffer.write(pwd + '\0', 5); // start : 5 (0 + 1 + 4)
 
         this.socket.write(buffer); 
-     }
+     } else if(passwordType === 3) {
+         // read 4bytes of salt which will be used for hashing
+         const salt = this.data.slice(start, start + 4);
+         // Password string
+         const pwd = this.config.password;
+         // Send the hashed password to the database
+         // length = 4 (the 4bytes for length) + the password length +
+         // 1 (the null terminator for the password (string))
+         const length = 4 + pwd.length + 1; 
+         const buffer = Buffer.alloc(1 + length); // 1 for message type 
+         buffer.write('p');  // p: message type character for password   
+         buffer.writeInt32BE(length, 1); // start : 1 (0 + 1)
+         buffer.write(pwd + '\0', 5); // start : 5 (0 + 1 + 4)
+
+         this.socket.write(buffer); 
+      }
   }
 
   query(text, callback) {
