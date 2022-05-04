@@ -8,6 +8,7 @@ Please step by step follow the table of content to build your own project.
 4. [Collect your tips about solution design from your experience](https://github.com/huavanthong/MasterDatabase/tree/main/01_GettingStarted/04_SolutionSQL)
 5. [When you have many solutions, you need to think about performance?](https://github.com/huavanthong/MasterDatabase/tree/main/01_GettingStarted/05_HighPerformance)
 6. [When you want to use PostgreSQL efficiently, you can refer Impersonate](https://github.com/huavanthong/MasterDatabase/tree/main/01_GettingStarted/06_Impersonate)
+7. [SQL Command: Example SQL command to demo Impersonate](https://github.com/huavanthong/MasterDatabase/blob/main/01_GettingStarted/06_Impersonate/impersonate_example.sql)
 
 # Reference
 1. https://www.pdfdrive.com/database-systems-design-implementation-and-management-with-d6663225.html
