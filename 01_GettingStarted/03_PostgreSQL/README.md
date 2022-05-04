@@ -153,9 +153,17 @@ Output
  testuser   |                                                            | {}
  xaopenuser | Superuser                                                  | {}
 ```
-#### to get all users in db using SQL query
+#### to get all users with OID in db using SQL query
 ```
 select * from pg_catalog.pg_user
+```
+Output
+```
+ usename  | usesysid | usecreatedb | usesuper | userepl | usebypassrls |  passwd  | valuntil | useconfig
+----------+----------+-------------+----------+---------+--------------+----------+----------+-----------
+ postgres |       10 | t           | t        | t       | t            | ******** |          |
+ fritz    |    16400 | f           | f        | f       | f            | ******** |          |
+ hvthong  |    24671 | f           | f        | f       | f            | ******** |          |
 ```
 More details: [here](https://ubiq.co/database-blog/how-to-list-all-users-in-postgresql/)
 #### to create a user
