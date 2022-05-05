@@ -5,11 +5,12 @@ This tutorial will help you understand deeply about SQL Command on PostgreSQL.
 1. What is a database transaction? How do you demo a transaction?
 2. How do you commit a transaction? And why to use it?
 3. What is rollback ? How do you demo it?
-3. The difference between Transaction Mode and Session Mode.
-
+# Reference
+* The difference between Transaction Mode and Session Mode. More details: [here](https://qurosity.com/oracle-session-transaction/)
+* Understand deeply about transaction. More details: [here](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-transaction/)
 
 ### Database Transaction
-More details: [here](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-transaction/)
+
 ```sql
 -- start a transaction <<<<<<<<<<<<<<<<<<<<<<<<<<=========================
 BEGIN;
