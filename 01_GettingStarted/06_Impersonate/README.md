@@ -1,5 +1,8 @@
 # Introduction
-This tutorial will help you understand about impersonate on PostgresSQL. You need follow step by steps to recognize the difference between each step. It helps you understand it clearly.
+This tutorial will help you understand about impersonate on PostgresSQL. You need follow step by steps to recognize the difference between each step. It helps you understand it clearly.  
+Through, you need to remember some keyword:
+* Impersonate features was implemented on PostgreSQL source, so to increase more efficiently, you need to combine with proxy such as Odyssey, or PgBoucer.
+* Impersonate such as a command SET SESSION in terminal on PostgreSQL.
 
 # Table of Contents
 * [What is impersonate?](#impersonate)
@@ -117,6 +120,34 @@ select * from tbl1customers
 ```
 
 ### Encryption password
+In PostgreSQL default, when you create a new user and update password for them, it will use SHA256 to hash password.
+```sql
+create user odyssey with password '123456';
+```
+Then you can check your password.
 ```sql
 select * from pg_authid
 ```
+Output
+```
+order_product=# select * from pg_authid;
+  oid  |          rolname          | rolsuper | rolinherit | rolcreaterole | rolcreatedb | rolcanlogin | rolreplication | rolbypassrls | rolconnlimit |                                                              rolpassword                                                              | rolvaliduntil
+-------+---------------------------+----------+------------+---------------+-------------+-------------+----------------+--------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------+---------------
+  6171 | pg_database_owner         | f        | t          | f             | f           | f           | f              | f            |           -1 |                                                                                                                                       |
+  6181 | pg_read_all_data          | f        | t          | f             | f           | f           | f              | f            |           -1 |                                                                                                                                       |
+  6182 | pg_write_all_data         | f        | t          | f             | f           | f           | f              | f            |           -1 |                                                                                                                                       |
+  3373 | pg_monitor                | f        | t          | f             | f           | f           | f              | f            |           -1 |                                                                                                                                       |
+  3374 | pg_read_all_settings      | f        | t          | f             | f           | f           | f              | f            |           -1 |                                                                                                                                       |
+  3375 | pg_read_all_stats         | f        | t          | f             | f           | f           | f              | f            |           -1 |                                                                                                                                       |
+  3377 | pg_stat_scan_tables       | f        | t          | f             | f           | f           | f              | f            |           -1 |                                                                                                                                       |
+  4569 | pg_read_server_files      | f        | t          | f             | f           | f           | f              | f            |           -1 |                                                                                            |
+  4570 | pg_write_server_files     | f        | t          | f             | f           | f           | f              | f            |           -1 |                                                                                                                                       |
+  4571 | pg_execute_server_program | f        | t          | f             | f           | f           | f              | f            |           -1 |                                                                                                                                       |
+  4200 | pg_signal_backend         | f        | t          | f             | f           | f           | f              | f            |           -1 |                                                                                                                                       |
+    10 | postgres                  | t        | t          | t             | t           | t           | t              | t            |           -1 | SCRAM-SHA-256$4096:UkgQu1DT8790dzeOq+llgg==$naOXo2QZngZ1QYIta89wcasQYbArrZMbmQ1VKDT8wJE=:Ag3fhvzXrl6hoLZCnqLCFDmeWak6ioes0/slWcUU2EU= |
+ 16400 | fritz                     | f        | t          | f             | f           | t           | f              | f            |           -1 | SCRAM-SHA-256$4096:hgpfwmT4+BGz8JLGo/e19Q==$e9C+D+Yy9uUh/MOnw+n+D5boGOp67Nu0cQOrEc4/ymE=:Dxj0nSbLNGmgFSiDB23cQT9LBKwvddwbYepLypQ02Do= |
+ 24671 | hvthong                   | f        | t          | f             | f           | t           | f              | f            |           -1 | SCRAM-SHA-256$4096:VOd339AaGxgy6D/KCsqctQ==$zw4a1IEdiyFi65EEL0O5tW65K/HsL+pUmhC6buZMCG8=:R6xPiBmOP084waPlh7UrI65rfddG0WPHsRZbGt9NxBI= |
+(14 rows)
+```
+
+
