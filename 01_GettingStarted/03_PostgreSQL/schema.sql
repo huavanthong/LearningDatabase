@@ -52,7 +52,7 @@ CREATE TABLE tbl1Categories(
 	CategoryName VARCHAR,
 	Description VARCHAR,
 	
-	CONSTRAINT tbl2_Categories_pkey PRIMARY KEY(CategoryID)
+	CONSTRAINT tbl1_Categories_pkey PRIMARY KEY(CategoryID)
 );
 
 DROP TABLE IF EXISTS tbl1Products CASCADE;
@@ -90,9 +90,18 @@ CREATE TABLE tbl2OrderDetails (
 	ProductID int,
 	Quantity int,
 	
-	CONSTRAINT tbl3_OrderDetails_pkey PRIMARY KEY (OrderDetailID),
+	CONSTRAINT tbl2_OrderDetails_pkey PRIMARY KEY (OrderDetailID),
 	CONSTRAINT OrderDetails_Orders FOREIGN KEY (OrderID) REFERENCES tbl3Orders(OrderID),
 	CONSTRAINT OrderDetails_Products FOREIGN KEY (ProductID) REFERENCES tbl1Products(ProductID)
 )
 
-
+DROP TABLE IF EXISTS tbl2SubCategories CASCADE;
+CREATE TABLE tbl2SubCategories(
+	SubCategoryID smallint,
+	SubCategoryName VARCHAR,
+	Description VARCHAR,
+	CategoryID smallint,
+	
+	CONSTRAINT tbl1_SubCategories_pkey PRIMARY KEY(SubCategoryID),
+	CONSTRAINT SubCategory_Category FOREIGN KEY (CategoryID) REFERENCES tbl1Categories(CategoryID)
+);
