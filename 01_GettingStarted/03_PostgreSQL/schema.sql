@@ -17,9 +17,10 @@ CREATE TABLE tbl1Employees (
 	LastName VARCHAR,
 	FirstName VARCHAR,
 	BirthDate DATE,
+	City VARCHAR,
 	Photo VARCHAR,
 	Notes VARCHAR,
-	
+
 	CONSTRAINT tbl1_Employees_pkey PRIMARY KEY (EmployeeID)
 );
 
@@ -89,6 +90,7 @@ CREATE TABLE tbl2OrderDetails (
 	OrderID bigint,
 	ProductID int,
 	Quantity int,
+	AmountPrice NUMERIC,
 	
 	CONSTRAINT tbl2_OrderDetails_pkey PRIMARY KEY (OrderDetailID),
 	CONSTRAINT OrderDetails_Orders FOREIGN KEY (OrderID) REFERENCES tbl3Orders(OrderID),
