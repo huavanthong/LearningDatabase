@@ -1,13 +1,13 @@
 DROP TABLE IF EXISTS tbl1Customers CASCADE;
 CREATE TABLE tbl1Customers (
 	CustomerID int,
-	CusterName VARCHAR,
+	CustomerName VARCHAR,
 	ContactName VARCHAR,
 	Address VARCHAR,
 	City VARCHAR,
 	PostalCode VARCHAR,
 	Country VARCHAR,
-	
+	EmployeeID int,
 	CONSTRAINT tbl1_CustomerID_pkey PRIMARY KEY (CustomerID)
 );
 
