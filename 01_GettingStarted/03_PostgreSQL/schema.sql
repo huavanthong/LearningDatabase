@@ -16,10 +16,10 @@ CREATE TABLE tbl1Employees (
 	EmployeeID int,
 	LastName VARCHAR,
 	FirstName VARCHAR,
+	Role VARCHAR,
 	BirthDate DATE,
 	Photo VARCHAR,
 	Notes VARCHAR,
-	
 	CONSTRAINT tbl1_Employees_pkey PRIMARY KEY (EmployeeID)
 );
 
