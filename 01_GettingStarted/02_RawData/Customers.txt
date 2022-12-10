@@ -91,3 +91,4 @@
 91	Wolski	Zbyszek	ul. Filtrowa 68	Walla	01-012	Poland	12
 92	CMC Global	cmcglobal.vn	13-14-15 Duong sang tao	Ho Chi Minh	008428	Viet Nam	11
 93	Renesas	renesas.com.vn	31-32-33 Duong sang tao	Ho Chi Minh	008428	Viet Nam	11
+94	Bosch	bosch.com.vn	eTower Truong Chinh Quan Tan Binh	Ho Chi Minh	008428	Viet Nam	
